@@ -3,10 +3,11 @@ import React from 'react'
 const SoundSection = () => {
 
     const handleLearnMore = () => {
-        const element = document.querySelector('.display-section')
-
+        console.log("clicked")
+        const element = document.querySelector(".display-section")
+        console.log(element)
         window.scrollTo({
-            to: element?.getBoundingClientRect().bottom,
+            top: element?.getBoundingClientRect().bottom,
             left: 0,
             behavior: "smooth"
         })
@@ -24,7 +25,7 @@ const SoundSection = () => {
                         <button className='button'>Buy</button>
                     </li>
                     <li>
-                        <a className='link' onClick={handleLearnMore}>Learn more</a>
+                        <a className='link' onClick={() => handleLearnMore()}>Learn more</a>
                     </li>
                 </ul>
             </div>
