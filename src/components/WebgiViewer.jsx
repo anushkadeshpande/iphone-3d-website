@@ -50,7 +50,7 @@ const WebgiViewer = forwardRef((props, ref) => {
         z: 2.29,
         duration: 2,
         onUpdate: () => {
-          viewerRef: setDirty();
+          viewerRef.setDirty();
           cameraRef.positionTargetUpdated(true)
         }
       })
@@ -63,6 +63,7 @@ const WebgiViewer = forwardRef((props, ref) => {
           duration: 2
         }
       )
+      
       viewerRef.scene.activeCamera.setCameraOptions({ controlsEnabled: true });
     }
   }))
@@ -135,7 +136,7 @@ const WebgiViewer = forwardRef((props, ref) => {
   const handleExit = useCallback(() => {
     canvasContainerRef.current.style.pointerEvents = "none"
     props.contentRef.current.style.opacity = "1"
-    viewer.scene.activeCamera.setCameraOptions({controlsEnabled: false})
+    viewerRef.scene.activeCamera.setCameraOptions({controlsEnabled: false})
     setPreviewMode(false)
 
     //get back to its original position
